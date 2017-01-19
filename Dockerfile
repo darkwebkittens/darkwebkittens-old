@@ -49,4 +49,4 @@ RUN ln -sf /dev/stderr /var/log/nginx/error.log
 # Command to launch when container is started
 USER nginx
 ##CMD ["bash"]
-CMD ["kittens"]
+CMD ["./kittens"]
