@@ -14,8 +14,7 @@ MAINTAINER Alex Haydock <alex@alexhaydock.co.uk>
 ENV SITETODEPLOY https://github.com/ajhaydock/CreativeCommonsCatPictures
 
 # Update container, and install nginx & git
-RUN dnf -y upgrade \
-  && dnf -y install nginx git php-fpm \
+RUN dnf -y install nginx git php-fpm \
   && dnf clean all
 
 # Add my custom nginx config
