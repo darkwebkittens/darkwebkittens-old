@@ -10,5 +10,5 @@ docker run --cap-drop=all --name cccp -d -p 80:8080 ajhaydock/cccp
 
 Deploy Tor hidden service container:
 ```
-docker run --cap-drop=all --name cccp -d -v /path/to/onion/service/key:/var/lib/tor/hiddenservice:ro ajhaydock/cccp:tor
+docker run --cap-drop=all --name cccptor -d -v /path/to/onion/service/key:/var/lib/tor/hiddenservice:ro ajhaydock/cccp:tor
 ```
