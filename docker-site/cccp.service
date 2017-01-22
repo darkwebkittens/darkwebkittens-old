@@ -1,5 +1,5 @@
 [Unit]
-Description=creativecommonscatpictures.com Docker Service
+Description=Creative Commons Cat Pictures WebServer Container
 After=docker.service
 Requires=docker.service
 

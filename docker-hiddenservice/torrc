@@ -7,4 +7,4 @@ SocksPort 0
 SocksPolicy reject *
 
 # Define hidden service
-HiddenServiceDir /var/lib/tor/hiddenservice/
+HiddenServiceDir /var/lib/tor/hiddenservice
