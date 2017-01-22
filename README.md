@@ -47,7 +47,7 @@ All images used on this site are licensed under Creative Commons. Most are from 
 * Fluffy Cat [by TheIntrovert on Flickr](https://www.flickr.com/photos/theintrovert/8669890808/)
 * Cat Photos [by Richard Ricciardi on Flickr](https://www.flickr.com/photos/ricricciardi/9233486351/)
 * cat-07358 [by Dorothy on Flickr](https://www.flickr.com/photos/tomatomail/14895989825/)
-* Devil's cat [by Thomas on Flickr](https://www.flickr.com/photos/caipirhona/5264164625/
+* Devil's cat [by Thomas on Flickr](https://www.flickr.com/photos/caipirhona/5264164625/)
 * Evil Ugly Cat [by Brian Boucheron on Flickr](https://www.flickr.com/photos/bert_m_b/891765178/)
 * Cat 2 (level adjusted) [by Rahel Schäpper on Flickr](https://www.flickr.com/photos/11000465@N02/1020923340/)
 * Cats in the Spring [by zaimoku_woodpile on Flickr](https://www.flickr.com/photos/11250735@N07/8560840635/)
