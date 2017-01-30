@@ -1,21 +1,21 @@
 # To deploy this container directly from Docker Hub, use:
 #
-#        docker run --cap-drop=all --name cccp -d -p 80:8080 ajhaydock/cccp
+#        docker run --cap-drop=all --name cccp -p 80:8080 -d ajhaydock/cccp
 #
 # To build and run this container locally, try a command like:
 #
 #        docker build -t cccp .
-#        docker run --cap-drop=all --name cccp -d -p 80:8080 cccp
+#        docker run --cap-drop=all --name cccp -p 80:8080 -d cccp
 #
 
-FROM fedora:latest
+FROM ajhaydock/nginx
 MAINTAINER Alex Haydock <alex@alexhaydock.co.uk>
 
 ENV SITETODEPLOY https://github.com/ajhaydock/CreativeCommonsCatPictures
 
-# Update container, and install nginx & git
-RUN dnf -y install nginx git php-fpm \
-  && dnf clean all
+# Build container as root
+USER root
+WORKDIR /root
 
 # Add our script to start php-fpm and nginx together
 ADD kittens.sh /kittens
@@ -27,8 +27,7 @@ ADD nginx.conf /etc/nginx/nginx.conf
 RUN rm -rf "/usr/share/nginx/html/" \
         && git clone $SITETODEPLOY /usr/share/nginx/html
 
-# Make sure the permissions are set correctly on our nginx and php-fpm
-# config dirs, pidfiles and Unix sockets so that we can run as non-root.
+# Make sure the permissions are set correctly on our nginx and php-fpm config dirs, pidfiles and Unix sockets so that we can run as non-root.
 RUN chown -R nginx:nginx /usr/share/nginx \
   && chmod -R 555 /usr/share/nginx \
   && touch /var/run/nginx.pid \
@@ -39,7 +38,9 @@ RUN chown -R nginx:nginx /usr/share/nginx \
   && chown nginx:nginx /kittens \
   && chmod +x /kittens
 
-# Command to launch when container is started
+# Launch Nginx in container as non-root
 USER nginx
-##CMD ["bash"]
+WORKDIR /usr/share/nginx
+
+# Launch command
 CMD ["./kittens"]

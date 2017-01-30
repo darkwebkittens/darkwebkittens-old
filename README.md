@@ -8,7 +8,7 @@ There'll be a point to this, I promise.
 
 ### Deploy Site Container
 ```
-docker run --cap-drop=all --name cccp -d -p 80:8080 ajhaydock/cccp
+docker run --cap-drop=all --name cccp -p 80:8080 -d ajhaydock/cccp
 ```
 
 
@@ -20,7 +20,7 @@ sudo chmod -R 700 /home/cats/hiddenservice
 ```
 
 ```
-docker run --cap-drop=all --name cccptor -d -v /home/cats/hiddenservice:/var/lib/tor/hiddenservice:ro ajhaydock/cccp:tor
+docker run --cap-drop=all --name cccptor -v /home/cats/hiddenservice:/var/lib/tor/hiddenservice -d ajhaydock/cccp:tor
 ```
 
 
