@@ -12,13 +12,14 @@ docker run --cap-drop=all --name cccp -p 80:8080 -d ajhaydock/cccp
 ```
 
 
-##### Tor Hidden Service
+### Deploy Tor Hidden Service Container
 I also deploy a seperate container to host the Tor process which serves this site as an Onion Service. It is deployed using [this container](https://github.com/ajhaydock/TorHiddenService-Docker).
 
 You can find the `torrc` and the systemd `.service` file to go with this container [here](https://github.com/ajhaydock/CreativeCommonsCatPictures/blob/master/docker-hiddenservice/).
 
 
-### Image License
+### Licenses
+#### Image License
 All images used on this site are licensed under Creative Commons. Most are from Flickr, and none have been modified.
 
 * Kitten [by Nicole.Kelly on Flickr](https://www.flickr.com/photos/nicolekelly/4671107278/)
@@ -49,7 +50,7 @@ All images used on this site are licensed under Creative Commons. Most are from 
 * Samouraï, futur geek [by Camille Gévaudan on Flickr](https://www.flickr.com/photos/k-m/4576725680/)
 
 
-### Code License
+#### Code License
 MIT License
 
 Copyright (c) 2017 Alex Haydock
