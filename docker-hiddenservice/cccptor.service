@@ -5,11 +5,11 @@ Requires=docker.service
 
 [Service]
 TimeoutStartSec=0
-ExecStartPre=-/usr/bin/docker stop cccptor
-ExecStartPre=-/usr/bin/docker rm cccptor
-ExecStartPre=-/usr/bin/docker pull ajhaydock/cccp:tor
-ExecStart=/usr/bin/docker run --cap-drop=all --name cccptor -v /home/cats/hiddenservice:/var/lib/tor/hiddenservice ajhaydock/cccp:tor
-ExecStop=/usr/bin/docker stop cccptor
+ExecStartPre=-/usr/bin/docker stop onion
+ExecStartPre=-/usr/bin/docker rm onion
+ExecStartPre=-/usr/bin/docker pull ajhaydock/onion
+ExecStart=/usr/bin/docker run --cap-drop=all --name onion -v /home/cats/torrc:/etc/tor/torrc:ro -v /home/cats/hiddenservice:/var/lib/tor/hiddenservice ajhaydock/onion
+ExecStop=/usr/bin/docker stop onion
 
 [Install]
 WantedBy=multi-user.target

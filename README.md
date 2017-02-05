@@ -12,16 +12,10 @@ docker run --cap-drop=all --name cccp -p 80:8080 -d ajhaydock/cccp
 ```
 
 
-### Deploy Tor Hidden Service Container
-Please make sure that your hidden service key dir (`/home/cats/hiddenservice` here) contains a valid `private_key` and `hostname` file. Permissions should be set as follows to ensure that the Docker container will not refuse to start:
-```
-sudo chown -R 100:100 /home/cats/hiddenservice
-sudo chmod -R 700 /home/cats/hiddenservice
-```
+##### Tor Hidden Service
+I also deploy a seperate container to host the Tor process which serves this site as an Onion Service. It is deployed using [this container](https://github.com/ajhaydock/TorHiddenService-Docker).
 
-```
-docker run --cap-drop=all --name cccptor -v /home/cats/hiddenservice:/var/lib/tor/hiddenservice -d ajhaydock/cccp:tor
-```
+You can find the `torrc` and the systemd `.service` file to go with this container [here](https://github.com/ajhaydock/CreativeCommonsCatPictures/blob/master/docker-hiddenservice/).
 
 
 ### Image License
