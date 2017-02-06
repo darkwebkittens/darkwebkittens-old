@@ -17,6 +17,10 @@ ENV SITETODEPLOY https://github.com/ajhaydock/CreativeCommonsCatPictures
 USER root
 WORKDIR /root
 
+# Install php-fpm
+RUN dnf install -y php-fpm \
+  && dnf clean all
+
 # Add our script to start php-fpm and nginx together
 ADD kittens.sh /kittens
 
