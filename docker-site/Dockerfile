@@ -22,7 +22,7 @@ RUN dnf install -y php-fpm \
   && dnf clean all
 
 # Add our script to start php-fpm and nginx together
-ADD kittens.sh /kittens
+ADD kittens.sh /usr/share/nginx/kittens
 
 # Add my custom nginx config
 ADD nginx.conf /etc/nginx/nginx.conf
@@ -39,12 +39,11 @@ RUN chown -R nginx:nginx /usr/share/nginx \
   && chown -R nginx:nginx /etc/nginx \
   && chown -R nginx:nginx /var/log/php-fpm \
   && chown -R nginx:nginx /run/php-fpm \
-  && chown nginx:nginx /kittens \
-  && chmod +x /kittens
+  && chmod +x /usr/share/nginx/kittens
 
 # Launch Nginx in container as non-root
 USER nginx
 WORKDIR /usr/share/nginx
 
 # Launch command
-CMD ["./kittens"]
+CMD ["/usr/share/nginx/kittens"]
