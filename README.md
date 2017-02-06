@@ -1,3 +1,5 @@
+[![](https://images.microbadger.com/badges/image/ajhaydock/cccp.svg)](https://microbadger.com/images/ajhaydock/cccp "Get your own image badge on microbadger.com")
+
 # CreativeCommonsCatPictures
 Work in progress. There'll be a point to this, I promise.
 
