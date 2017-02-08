@@ -21,10 +21,8 @@ WORKDIR /root
 RUN dnf install -y php-fpm \
   && dnf clean all
 
-# Add my custom nginx config, the script to generate a list of Tor exits,
-# and our script to start php-fpm and nginx together.
+# Add my custom nginx config, and the script to generate a list of Tor exits then start php-fpm and nginx together.
 ADD nginx.conf /etc/nginx/nginx.conf
-ADD torexits.sh /usr/share/nginx/torexits
 ADD kittens.sh /usr/share/nginx/kittens
 
 # Deploy site into HTML dir
@@ -39,12 +37,7 @@ RUN chown -R nginx:nginx /usr/share/nginx \
   && chown -R nginx:nginx /etc/nginx \
   && chown -R nginx:nginx /var/log/php-fpm \
   && chown -R nginx:nginx /run/php-fpm \
-  && chmod +x /usr/share/nginx/kittens \
-  && chmod +x /usr/share/nginx/torexits
-
-# Pull down the list of Tor exits to use for redirecting
-RUN /usr/share/nginx/torexits > /etc/nginx/torexits.conf \
-  && chown nginx:nginx /etc/nginx/torexits.conf
+  && chmod +x /usr/share/nginx/kittens
 
 # Launch Nginx in container as non-root
 USER nginx
