@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Download list of Tor exits
-TOREXITLIST=0
-TOREXITLIST=$(curl -s https://check.torproject.org/exit-addresses | grep ExitAddress | awk '{print "\t" $2 " 1;"}')
+# Download (and verify!) list of Tor exits
+curl -s --ssl-reqd https://check.torproject.org/exit-addresses -o /etc/nginx/tor-exits-raw
+if [ ! -f "/etc/nginx/tor-exits-raw" ]; then echo "Tor exit list could not be downloaded. Exiting!" && exit 10; fi
 
-# If the exit list somehow failed to download, echo that fact out and then exit.
-if [[ $TOREXITLIST -eq 0 ]]; then echo "Tor exit list could not be downloaded!" && exit 10; fi
+# Format the IP list properly
+TOREXITLIST=$(grep "ExitAddress" /etc/nginx/tor-exits-raw | awk '{print "\t" $2 " 1;"}')
 
 # Pipe exit list into nginx-compatible conf file
 echo -e "geo \$torExit {
