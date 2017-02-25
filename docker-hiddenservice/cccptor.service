@@ -8,7 +8,7 @@ TimeoutStartSec=0
 ExecStartPre=-/usr/bin/docker stop onion
 ExecStartPre=-/usr/bin/docker rm onion
 ExecStartPre=-/usr/bin/docker pull ajhaydock/onion
-ExecStart=/usr/bin/docker run --cap-drop=all --name onion -v /home/cats/hiddenservice:/opt/onion/hiddenservice ajhaydock/cccptor
+ExecStart=/usr/bin/docker run --cap-drop=all --name cccptor -v /home/cats/hiddenservice:/opt/onion/hiddenservice ajhaydock/cccptor
 ExecStop=/usr/bin/docker stop onion
 
 [Install]

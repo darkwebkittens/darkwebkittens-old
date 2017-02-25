@@ -3,12 +3,18 @@
 # CreativeCommonsCatPictures
 Work in progress. There'll be a point to this, I promise.
 
+-----------------------------------------
+
+
 ### Deploy Site Container
 Container hosted [on Docker Hub](https://hub.docker.com/r/ajhaydock/cccp/).
 
 ```
 docker run --cap-drop=all --name cccp -p 80:8080 -d ajhaydock/cccp
 ```
+
+-----------------------------------------
+
 
 ### Deploy Tor Hidden Service Container
 Tor Hidden Service deployed using [this container](https://github.com/ajhaydock/CreativeCommonsCatPictures/blob/master/docker-hiddenservice/). It is a container that wraps Tor and nginx together, with nginx running in reverse-proxy mode. This is useful, as nginx can be configured to add in some useful headers that secure the onion service somewhat - and to strip out some headers that might give away too much about our server.
@@ -26,7 +32,13 @@ docker exec -it cccptor cat /opt/onion/hiddenservice/hostname
 
 If you wish to mount your `nginx.conf` and hidden service directory into the container like I do above, you will need to ensure that they are owned by the uid/gid `1000` on your host.
 
+-----------------------------------------
+
+
 ![kitten](https://github.com/ajhaydock/CreativeCommonsCatPictures/raw/master/kitten.jpg)
+
+-----------------------------------------
+
 
 ### Licenses
 #### Image License
