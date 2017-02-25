@@ -6,6 +6,12 @@ ExtraInfoStatistics 0
 SocksPort 0
 SocksPolicy reject *
 
+# General hidden service options
+HeartbeatPeriod 60 minutes
+LongLivedPorts 80
+RunAsDaemon 1
+
 # Define hidden service
-HiddenServiceDir /var/lib/tor/hiddenservice
-HiddenServicePort 80 172.16.16.80:80
+HiddenServiceDir /opt/onion/hiddenservice
+HiddenServicePort 80 unix:/tmp/nginx-listen.sock
+HiddenServiceNumIntroductionPoints 3
