@@ -8,7 +8,7 @@ TimeoutStartSec=0
 ExecStartPre=-/usr/bin/docker stop onion
 ExecStartPre=-/usr/bin/docker rm onion
 ExecStartPre=-/usr/bin/docker pull ajhaydock/onion
-ExecStart=/usr/bin/docker run --cap-drop=all --name onion -v /home/cats/torrc:/etc/tor/torrc:ro -v /home/cats/hiddenservice:/var/lib/tor/hiddenservice ajhaydock/onion
+ExecStart=/usr/bin/docker run --cap-drop=all --name onion -v /home/cats/hiddenservice:/opt/onion/hiddenservice ajhaydock/cccptor
 ExecStop=/usr/bin/docker stop onion
 
 [Install]
