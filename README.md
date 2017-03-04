@@ -17,20 +17,11 @@ docker run --cap-drop=all --name cccp -p 80:8080 -d ajhaydock/cccp
 
 
 ### Deploy Tor Hidden Service Container
-Tor Hidden Service deployed using [this container](https://github.com/ajhaydock/CreativeCommonsCatPictures/blob/master/docker-hiddenservice/). It is a container that wraps Tor and nginx together, with nginx running in reverse-proxy mode. This is useful, as nginx can be configured to add in some useful headers that secure the onion service somewhat - and to strip out some headers that might give away too much about our server.
+Tor Hidden Service deployed using [this container](https://github.com/ajhaydock/TorHiddenService-Docker/). It is a container that wraps Tor and nginx together, with nginx running in reverse-proxy mode. This is useful, as nginx can be configured to add in some useful headers that secure the onion service somewhat - and to strip out some headers that might give away too much about our server.
 ```
-docker run --cap-drop=all --name cccptor -v /home/cats/nginx.conf/etc/nginx/nginx.conf:ro -v /home/cats/hiddenservice:/opt/onion/hiddenservice -d ajhaydock/cccptor
+docker run --cap-drop=all --name cccptor -v /home/cats/nginx.conf/etc/nginx/nginx.conf:ro -v /home/cats/hiddenservice:/opt/onion/hiddenservice -d ajhaydock/onion
 ```
-If you steal this, you will almost certainly want to mount your own version of `nginx.conf` into the container, as I do in the above example (mine points to a local IP and your target is presumably different).
-
-Mounting the `hiddenservice/` directory is optional, but you will want to do this if you have a custom `.onion` URL, or you do not want a new URL every time the container is run.
-
-If you do not mount a `hiddenservice/` dir with a custom `.onion` URL, you can check the `.onion` URL of a running container with:
-```
-docker exec -it cccptor cat /opt/onion/hiddenservice/hostname
-```
-
-If you wish to mount your `nginx.conf` and hidden service directory into the container like I do above, you will need to ensure that they are owned by the uid/gid `1000` on your host.
+If you wish to deploy a site in a similar fashion, please see the `README.md` document in the repository for the container linked above.
 
 -----------------------------------------
 
