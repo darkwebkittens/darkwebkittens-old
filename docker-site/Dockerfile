@@ -18,9 +18,9 @@ USER root
 WORKDIR /root
 
 # Install php-fpm
-RUN dnf install -y \
+RUN yum install -y \
       php-fpm && \
-    dnf clean all
+    yum clean all
 
 # Add my custom nginx config, and the script to generate a list of Tor exits then start php-fpm and nginx together.
 ADD nginx.conf /etc/nginx/nginx.conf
