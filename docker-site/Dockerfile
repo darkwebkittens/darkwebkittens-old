@@ -26,6 +26,9 @@ RUN yum install -y \
 ADD nginx.conf /etc/nginx/nginx.conf
 ADD kittens.sh /usr/share/nginx/kittens
 
+# Edit PHP config to listen on a Unix socket rather than a port
+RUN perl -pi -e 's,^listen = 127.0.0.1:9000,listen = /run/php-fpm/www.sock,' /etc/php-fpm.d/www.conf
+
 # Deploy site into HTML dir
 RUN rm -rf "/usr/share/nginx/html/" && \
     git clone $SITETODEPLOY /usr/share/nginx/html

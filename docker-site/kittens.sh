@@ -13,5 +13,5 @@ echo -e "geo \$torExit {
 $TOREXITLIST
 }" > /etc/nginx/torexits.conf
 
-# Load php-fpm and nginx
-php-fpm && nginx -g "daemon off;"
+# Load php-fpm and nginx (-D daemonizes PHP)
+php-fpm -D && nginx -g "daemon off;"
