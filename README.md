@@ -1,5 +1,3 @@
-[![](https://images.microbadger.com/badges/image/ajhaydock/cccp.svg)](https://microbadger.com/images/ajhaydock/cccp "Get your own image badge on microbadger.com")
-
 # CreativeCommonsCatPictures
 Work in progress. There'll be a point to this, I promise.
 
@@ -7,26 +5,26 @@ Work in progress. There'll be a point to this, I promise.
 
 
 ### Deploy Site Container
-Container hosted [on Docker Hub](https://hub.docker.com/r/ajhaydock/cccp/).
+Container hosted [on Docker Hub](https://hub.docker.com/r/alexhaydock/cccp/).
 
 ```
-docker run --cap-drop=all --name cccp -p 80:8080 -d ajhaydock/cccp
+docker run --cap-drop=all --name cccp -p 80:8080 -d alexhaydock/cccp
 ```
 
 -----------------------------------------
 
 
 ### Deploy Tor Hidden Service Container
-Tor Hidden Service deployed using [this container](https://github.com/ajhaydock/TorHiddenService-Docker/). It is a container that wraps Tor and nginx together, with nginx running in reverse-proxy mode. This is useful, as nginx can be configured to add in some useful headers that secure the onion service somewhat - and to strip out some headers that might give away too much about our server.
+Tor Hidden Service deployed using [this container](https://github.com/alexhaydock/TorHiddenService-Docker/). It is a container that wraps Tor and nginx together, with nginx running in reverse-proxy mode. This is useful, as nginx can be configured to add in some useful headers that secure the onion service somewhat - and to strip out some headers that might give away too much about our server.
 ```
-docker run --cap-drop=all --name cccptor -v /home/cats/nginx.conf/etc/nginx/nginx.conf:ro -v /home/cats/hiddenservice:/opt/onion/hiddenservice -d ajhaydock/onion
+docker run --cap-drop=all --name cccptor -v /home/cats/nginx.conf/etc/nginx/nginx.conf:ro -v /home/cats/hiddenservice:/opt/onion/hiddenservice -d alexhaydock/onion
 ```
 If you wish to deploy a site in a similar fashion, please see the `README.md` document in the repository for the container linked above.
 
 -----------------------------------------
 
 
-![kitten](https://github.com/ajhaydock/CreativeCommonsCatPictures/raw/master/kitten.jpg)
+![kitten](https://github.com/alexhaydock/CreativeCommonsCatPictures/raw/master/kitten.jpg)
 
 -----------------------------------------
 
