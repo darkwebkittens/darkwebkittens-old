@@ -55,7 +55,7 @@
 							<article id="onions">
 								<h2 class="major">Tor Onion Services</h2>
 								<p>This site is available as a Tor Onion Service at:</p>
-								<p><center><b>oniononiononion.onion</b></center></p>
+								<p><center><b>7h4hhpykscqbstlboqey4dbncrxd2cjbtfs3bnljvopcn4h6by4ngiad.onion</b></center></p>
 								<p>Onion Services are special web addresses that are understood by the Tor anonymity software and can be accessed using the <a target="_blank" rel="noopener noreferrer" href="https://www.torproject.org/">Tor Browser</a>.</p>
 								<p>Onion domains provide a number of security benefits over regular domains, such as:</br>
 								&nbsp;&bull;&nbsp;&nbsp;Additional privacy</br>
@@ -73,7 +73,8 @@
 								<p>This site is currently served from a VPS running <a target="_blank" rel="noopener noreferrer" href="https://www.openbsd.org/">OpenBSD</a> and uses the native <b>httpd</b> as a webserver, along with <b>pf</b> as a firewall. Both packages are included in the base install of OpenBSD. Only one aditional package &mdash; <b>tor</b> &mdash; has been installed on the system.
 								<h3>httpd</h3>
 								<p>The base installation of OpenBSD ships with <b><a target="_blank" rel="noopener noreferrer" href="https://bsd.plumbing/">httpd</a></b>, a lightweight and full-featured secure webserver. (Not to be confused with the similarly-named <a target="_blank" rel="noopener noreferrer" href="https://httpd.apache.org/">Apache httpd</a>).</p>
-								<p><b>httpd</b> is an incredibly powerful webserver which can be surprisingly easily configured. For more info, I highly recommend <a target="_blank" rel="noopener noreferrer" href="https://www.michaelwlucas.com/tools/relayd">this book</a> by Michael W Lucas.
+								<p><b>httpd</b> is an incredibly powerful webserver which can be surprisingly easily configured. It uses the OpenBSD project's <a target="_blank rel="noopener noreferrer" href="https://www.libressl.org/">LibreSSL</a> to handle encryption.</p>
+								<p>For more info on <b>httpd</b>, I highly recommend <a target="_blank" rel="noopener noreferrer" href="https://www.michaelwlucas.com/tools/relayd">this book</a> by Michael W Lucas.
 								<h3>pf</h3>
 								<p>Also available out-of-the-box in the base install of OpenBSD, <b><a target="_blank" rel="noopener noreferrer" href="https://www.openbsd.org/faq/pf/">pf</a></b> is recognised as one of the most powerful firewall packages in the industry.</p>
 								<p>The <b>pf</b> firewall is the magic sauce behind this site's automatic onion redirect. <a target="_blank" rel="noopener noreferrer" href="https://github.com/alexhaydock/DarkwebKittens/wiki/Onion-Redirect-(httpd,-pf)">See here</a> to find out how I implemented it.</p>
@@ -361,7 +362,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 				<!-- Footer -->
 					<footer id="footer">
-						<p class="copyright"><a href="#">Hide Text</a></p>
+						<!-- <p class="copyright"><a href="#">Hide Text</a></p> **HIDDEN UNTIL THIS WORKS** -->
 					</footer>
 
 			</div>
