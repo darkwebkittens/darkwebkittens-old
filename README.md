@@ -1,6 +1,6 @@
 # Darkweb Kittens 🐈
 
-https://creativecommonscatpictures.com
+https://darkwebkittens.xyz
 
 
 -----------------------------------------
@@ -13,7 +13,7 @@ https://creativecommonscatpictures.com
 
 
 ### Licenses
-#### Code License (see [site](https://creativecommonscatpictures.com/#credits) for image licenses)
+#### Code License (see [site](https://darkwebkittens.xyz/#credits) for image licenses)
 MIT License
 
 Copyright (c) 2017 Alex Haydock

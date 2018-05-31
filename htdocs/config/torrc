@@ -1,0 +1,32 @@
+# IMPORTANT! Since rcctl starts Tor as root and drops privileges later, this
+# line is very important - without it, Tor will just continue running as root.
+# (OpenBSD creates the _tor user automatically during pkg_add)
+User _tor
+
+# Set directories
+DataDirectory /var/tor
+
+# Keep no statistics
+DirReqStatistics 0
+ExtraInfoStatistics 0
+
+# Run Tor only as a hidden service and do not create a local SOCKS proxy
+SocksPort 0
+SocksPolicy reject *
+
+# Tell Tor about ports we're using that might need connections to stay open
+# for a long time (these ports will only use high-uptime nodes).
+LongLivedPorts 80,64532
+
+# Define hidden services below
+# (Not using single-hop services here because tor produces a warning when
+# starting up if these are used and rcctl seems to interpret warnings as a
+# failure, stopping the daemon's start process.)
+
+HiddenServiceDir /var/tor/hiddensite
+HiddenServiceVersion 3
+HiddenServicePort 80 127.0.0.1:8008
+
+HiddenServiceDir /var/tor/hiddenssh
+HiddenServiceVersion 3
+HiddenServicePort 64532 127.0.0.1:64532
